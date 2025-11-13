@@ -67,9 +67,6 @@ app.post('/api/text/delete', (req, res) => {
   res.json({ message });
 });
 
-app.listen(3000, () => console.log('VaultX backend running at http://localhost:3000'));
-
-
 // 🗂 Fetch workspace contents
 app.post('/api/text/fetch', (req, res) => {
   const { password } = req.body;
@@ -87,4 +84,10 @@ app.post('/api/text/fetch', (req, res) => {
   }
 
   res.json({ files, text: textData });
+});
+
+// ⭐ FIXED PORT FOR RENDER ⭐
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`VaultX backend running on port ${PORT}`);
 });
